@@ -1,0 +1,14 @@
+# Python 3.11+. Install with:  python -m venv .venv && .venv/bin/pip install -r requirements.txt
+numpy>=1.26
+pandas>=2.1
+pyarrow>=14
+scikit-learn>=1.4
+joblib>=1.3
+threadpoolctl>=3.2
+matplotlib>=3.8
+dpkt>=1.9.8        # fast offline pcap/pcapng parsing
+scapy>=2.5         # writing the demo pcap; optional live capture
+rich>=13           # CLI demo
+streamlit>=1.30    # dashboard
+pytest>=7          # tests
+kagglesdk>=0.1     # dataset download from the Kaggle mirror (needs ~/.kaggle/kaggle.json)

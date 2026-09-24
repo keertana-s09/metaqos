@@ -1,0 +1,381 @@
+{
+ "summary": [
+  {
+   "transform": "baseline",
+   "windows": 48040,
+   "accuracy": 0.9344088259783514,
+   "macro_f1": 0.8169653051468896,
+   "tier_accuracy": 0.9699417152373022,
+   "delta_acc": 0.0
+  },
+  {
+   "transform": "mtu1360",
+   "windows": 57675,
+   "accuracy": 0.5201387082791504,
+   "macro_f1": 0.3325547986958323,
+   "tier_accuracy": 0.5534633723450368,
+   "delta_acc": -0.41427011769920097
+  },
+  {
+   "transform": "mtu1200",
+   "windows": 58565,
+   "accuracy": 0.518432510885341,
+   "macro_f1": 0.36559227686278634,
+   "tier_accuracy": 0.5470502860070008,
+   "delta_acc": -0.41597631509301036
+  },
+  {
+   "transform": "noacks",
+   "windows": 43273,
+   "accuracy": 0.905853534536547,
+   "macro_f1": 0.670439174531221,
+   "tier_accuracy": 0.937559217063758,
+   "delta_acc": -0.028555291441804354
+  },
+  {
+   "transform": "asudp",
+   "windows": 48040,
+   "accuracy": 0.9330766028309742,
+   "macro_f1": 0.8151006291258934,
+   "tier_accuracy": 0.968526228143214,
+   "delta_acc": -0.0013322231473772428
+  },
+  {
+   "transform": "quiclike",
+   "windows": 52914,
+   "accuracy": 0.5410855350190876,
+   "macro_f1": 0.2776793090187829,
+   "tier_accuracy": 0.5669577049552104,
+   "delta_acc": -0.39332329095926377
+  }
+ ],
+ "per_class": {
+  "baseline": [
+   {
+    "class": "chat",
+    "precision": 0.5152838427947598,
+    "recall": 0.8458781362007168,
+    "f1": 0.6404341926729986,
+    "support": 279
+   },
+   {
+    "class": "email",
+    "precision": 0.40152963671128106,
+    "recall": 0.7342657342657343,
+    "f1": 0.519159456118665,
+    "support": 286
+   },
+   {
+    "class": "file_transfer",
+    "precision": 0.9806545647277064,
+    "recall": 0.850591885990116,
+    "f1": 0.9110044313146234,
+    "support": 8701
+   },
+   {
+    "class": "streaming",
+    "precision": 0.994664079553723,
+    "recall": 0.9853435848149928,
+    "f1": 0.9899818949909475,
+    "support": 8324
+   },
+   {
+    "class": "video_call",
+    "precision": 0.9910756972111554,
+    "recall": 0.8161417322834645,
+    "f1": 0.8951421374595178,
+    "support": 7620
+   },
+   {
+    "class": "voip_audio",
+    "precision": 0.9051658597094954,
+    "recall": 0.9908453788874289,
+    "f1": 0.9460697183245854,
+    "support": 22830
+   },
+   {
+    "class": "macro avg",
+    "precision": 0.7980622801180202,
+    "recall": 0.8705110754070756,
+    "f1": 0.8169653051468896,
+    "support": 48040
+   }
+  ],
+  "mtu1360": [
+   {
+    "class": "chat",
+    "precision": 0.0877742946708464,
+    "recall": 0.7974683544303798,
+    "f1": 0.1581424537182303,
+    "support": 316
+   },
+   {
+    "class": "email",
+    "precision": 0.27640156453715775,
+    "recall": 0.7310344827586207,
+    "f1": 0.4011352885525071,
+    "support": 290
+   },
+   {
+    "class": "file_transfer",
+    "precision": 0.9349962207105065,
+    "recall": 0.09352789959171329,
+    "f1": 0.17004605127500172,
+    "support": 13226
+   },
+   {
+    "class": "streaming",
+    "precision": 0.810126582278481,
+    "recall": 0.004806609087495306,
+    "f1": 0.00955651784381066,
+    "support": 13315
+   },
+   {
+    "class": "video_call",
+    "precision": 0.24298700792009675,
+    "recall": 0.816465652857892,
+    "f1": 0.37451516882648306,
+    "support": 7628
+   },
+   {
+    "class": "voip_audio",
+    "precision": 0.8149163086950082,
+    "recall": 0.9609606986899564,
+    "f1": 0.8819333119589612,
+    "support": 22900
+   },
+   {
+    "class": "macro avg",
+    "precision": 0.5278669964686827,
+    "recall": 0.5673772829026763,
+    "f1": 0.3325547986958323,
+    "support": 57675
+   }
+  ],
+  "mtu1200": [
+   {
+    "class": "chat",
+    "precision": 0.14863258026159334,
+    "recall": 0.7861635220125787,
+    "f1": 0.25,
+    "support": 318
+   },
+   {
+    "class": "email",
+    "precision": 0.41291585127201563,
+    "recall": 0.7275862068965517,
+    "f1": 0.5268414481897628,
+    "support": 290
+   },
+   {
+    "class": "file_transfer",
+    "precision": 0.9324430479183032,
+    "recall": 0.08971355150782254,
+    "f1": 0.16367898510755655,
+    "support": 13231
+   },
+   {
+    "class": "streaming",
+    "precision": 0.8978102189781022,
+    "recall": 0.008884073672806067,
+    "f1": 0.017594049492204264,
+    "support": 13845
+   },
+   {
+    "class": "video_call",
+    "precision": 0.2536478035976222,
+    "recall": 0.8237432618778989,
+    "f1": 0.3878641206504737,
+    "support": 7977
+   },
+   {
+    "class": "voip_audio",
+    "precision": 0.7578469162995595,
+    "recall": 0.9614041215508208,
+    "f1": 0.8475750577367206,
+    "support": 22904
+   },
+   {
+    "class": "macro avg",
+    "precision": 0.5672160697211993,
+    "recall": 0.5662491229197465,
+    "f1": 0.36559227686278634,
+    "support": 58565
+   }
+  ],
+  "noacks": [
+   {
+    "class": "chat",
+    "precision": 0.38,
+    "recall": 0.8066037735849056,
+    "f1": 0.5166163141993958,
+    "support": 212
+   },
+   {
+    "class": "email",
+    "precision": 0.07692307692307693,
+    "recall": 0.0053475935828877,
+    "f1": 0.01,
+    "support": 187
+   },
+   {
+    "class": "file_transfer",
+    "precision": 0.9899648770697441,
+    "recall": 0.6312589985602304,
+    "f1": 0.7709289831005177,
+    "support": 6251
+   },
+   {
+    "class": "streaming",
+    "precision": 0.7687393040501996,
+    "recall": 0.996303415643945,
+    "f1": 0.8678516228748068,
+    "support": 6763
+   },
+   {
+    "class": "video_call",
+    "precision": 0.9899697500398026,
+    "recall": 0.8185887309110058,
+    "f1": 0.8961591122000432,
+    "support": 7596
+   },
+   {
+    "class": "voip_audio",
+    "precision": 0.930481958112541,
+    "recall": 0.9937567373338124,
+    "f1": 0.9610790148125624,
+    "support": 22264
+   },
+   {
+    "class": "macro avg",
+    "precision": 0.689346494365894,
+    "recall": 0.7086432082694644,
+    "f1": 0.670439174531221,
+    "support": 43273
+   }
+  ],
+  "asudp": [
+   {
+    "class": "chat",
+    "precision": 0.5086206896551724,
+    "recall": 0.8458781362007168,
+    "f1": 0.6352624495289367,
+    "support": 279
+   },
+   {
+    "class": "email",
+    "precision": 0.40076335877862596,
+    "recall": 0.7342657342657343,
+    "f1": 0.5185185185185185,
+    "support": 286
+   },
+   {
+    "class": "file_transfer",
+    "precision": 0.9819180283953924,
+    "recall": 0.8425468336972761,
+    "f1": 0.9069091358941053,
+    "support": 8701
+   },
+   {
+    "class": "streaming",
+    "precision": 0.9950224596333617,
+    "recall": 0.9846227775108121,
+    "f1": 0.9897953022160497,
+    "support": 8324
+   },
+   {
+    "class": "video_call",
+    "precision": 0.9912336627350973,
+    "recall": 0.8161417322834645,
+    "f1": 0.8952065639844538,
+    "support": 7620
+   },
+   {
+    "class": "voip_audio",
+    "precision": 0.9026121635094716,
+    "recall": 0.991371003066141,
+    "f1": 0.9449118046132972,
+    "support": 22830
+   },
+   {
+    "class": "macro avg",
+    "precision": 0.7966950604511869,
+    "recall": 0.8691377028373575,
+    "f1": 0.8151006291258934,
+    "support": 48040
+   }
+  ],
+  "quiclike": [
+   {
+    "class": "chat",
+    "precision": 0.15604575163398693,
+    "recall": 0.764,
+    "f1": 0.2591587516960651,
+    "support": 250
+   },
+   {
+    "class": "email",
+    "precision": 0.07142857142857142,
+    "recall": 0.005263157894736842,
+    "f1": 0.00980392156862745,
+    "support": 190
+   },
+   {
+    "class": "file_transfer",
+    "precision": 0.9393414211438474,
+    "recall": 0.05029228913426742,
+    "f1": 0.0954729610709882,
+    "support": 10777
+   },
+   {
+    "class": "streaming",
+    "precision": 0.5,
+    "recall": 8.505571149102662e-05,
+    "f1": 0.0001700824900076537,
+    "support": 11757
+   },
+   {
+    "class": "video_call",
+    "precision": 0.2241410325598129,
+    "recall": 0.819197896120973,
+    "f1": 0.3519774011299435,
+    "support": 7605
+   },
+   {
+    "class": "voip_audio",
+    "precision": 0.9297914342116557,
+    "recall": 0.9700470114170584,
+    "f1": 0.9494927361570655,
+    "support": 22335
+   },
+   {
+    "class": "macro avg",
+    "precision": 0.4701247018296457,
+    "recall": 0.4348142350464211,
+    "f1": 0.2776793090187829,
+    "support": 52914
+   }
+  ]
+ },
+ "pure_ack_max_bytes": 66,
+ "transforms": {
+  "baseline": {},
+  "mtu1360": {
+   "mtu": 1360
+  },
+  "mtu1200": {
+   "mtu": 1200
+  },
+  "noacks": {
+   "drop_acks": true
+  },
+  "asudp": {
+   "as_udp": true
+  },
+  "quiclike": {
+   "mtu": 1350,
+   "drop_acks": true,
+   "as_udp": true
+  }
+ }
+}

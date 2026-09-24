@@ -1,0 +1,949 @@
+{
+ "data": "/home/keertana/metaqos/data/processed/windows_w32.parquet",
+ "window": 32,
+ "n_windows_total": 285186,
+ "dataset": [
+  {
+   "label": "chat",
+   "windows": 2341,
+   "flows": 232,
+   "sessions": 16,
+   "apps": "aim_chat, aimchat, facebook_chat, facebookchat, gmailchat, hangout_chat, hangouts_chat, icq_chat, icqchat, skype_chat"
+  },
+  {
+   "label": "email",
+   "windows": 589,
+   "flows": 255,
+   "sessions": 2,
+   "apps": "email"
+  },
+  {
+   "label": "file_transfer",
+   "windows": 37276,
+   "flows": 100,
+   "sessions": 17,
+   "apps": "ftps_up, scpdown, sftp_down, sftp_up, sftpdown, sftpup, skype_file"
+  },
+  {
+   "label": "streaming",
+   "windows": 47100,
+   "flows": 501,
+   "sessions": 19,
+   "apps": "netflix, spotify, vimeo, youtube, youtubehtml5"
+  },
+  {
+   "label": "video_call",
+   "windows": 50301,
+   "flows": 215,
+   "sessions": 5,
+   "apps": "facebook_video, hangouts_video, skype_video"
+  },
+  {
+   "label": "voip_audio",
+   "windows": 147579,
+   "flows": 629,
+   "sessions": 16,
+   "apps": "facebook_audio, hangouts_audio, skype_audio, voipbuster"
+  }
+ ],
+ "train_windows_capped": 28058,
+ "train_windows_raw": 237146,
+ "test_windows": 48040,
+ "held_out_sessions": [
+  "facebook_video2",
+  "hangouts_audio3",
+  "skype_audio2",
+  "netflix2",
+  "youtube4",
+  "vimeo3",
+  "sftp_down_3",
+  "scpDown3",
+  "skype_file3",
+  "facebook_chat_4",
+  "gmailchat2",
+  "email2"
+ ],
+ "model_comparison": [
+  {
+   "model": "decision_tree",
+   "cv macro-F1": 0.6111282382433986,
+   "cv acc": 0.7879392686577803,
+   "cv fold F1 min/max": "0.48/0.70",
+   "held-out macro-F1": 0.7262582521098936,
+   "held-out acc": 0.8807243963363863,
+   "held-out tier acc": 0.9109492089925062,
+   "single-flow latency (us)": 58,
+   "1-thread latency (us)": 58,
+   "batched (us/flow)": 0.2,
+   "size (KB)": 20,
+   "fit (s)": 0.4
+  },
+  {
+   "model": "random_forest",
+   "cv macro-F1": 0.6710467404906898,
+   "cv acc": 0.8504169933708746,
+   "cv fold F1 min/max": "0.52/0.75",
+   "held-out macro-F1": 0.8169653051468896,
+   "held-out acc": 0.9344088259783514,
+   "held-out tier acc": 0.9699417152373022,
+   "single-flow latency (us)": 3473,
+   "1-thread latency (us)": 3464,
+   "batched (us/flow)": 10.5,
+   "size (KB)": 3661,
+   "fit (s)": 1.3
+  },
+  {
+   "model": "hist_gbt",
+   "cv macro-F1": 0.5818542315911547,
+   "cv acc": 0.7885807969206643,
+   "cv fold F1 min/max": "0.41/0.75",
+   "held-out macro-F1": 0.8526081840090413,
+   "held-out acc": 0.9308701082431308,
+   "held-out tier acc": 0.9597626977518734,
+   "single-flow latency (us)": 2441,
+   "1-thread latency (us)": 1596,
+   "batched (us/flow)": 6.8,
+   "size (KB)": 562,
+   "fit (s)": 6.8
+  }
+ ],
+ "final_model": "random_forest",
+ "held_out_per_class": [
+  {
+   "class": "chat",
+   "precision": 0.5152838427947598,
+   "recall": 0.8458781362007168,
+   "f1": 0.6404341926729986,
+   "support": 279
+  },
+  {
+   "class": "email",
+   "precision": 0.40152963671128106,
+   "recall": 0.7342657342657343,
+   "f1": 0.519159456118665,
+   "support": 286
+  },
+  {
+   "class": "file_transfer",
+   "precision": 0.9806545647277064,
+   "recall": 0.850591885990116,
+   "f1": 0.9110044313146234,
+   "support": 8701
+  },
+  {
+   "class": "streaming",
+   "precision": 0.994664079553723,
+   "recall": 0.9853435848149928,
+   "f1": 0.9899818949909475,
+   "support": 8324
+  },
+  {
+   "class": "video_call",
+   "precision": 0.9910756972111554,
+   "recall": 0.8161417322834645,
+   "f1": 0.8951421374595178,
+   "support": 7620
+  },
+  {
+   "class": "voip_audio",
+   "precision": 0.9051658597094954,
+   "recall": 0.9908453788874289,
+   "f1": 0.9460697183245854,
+   "support": 22830
+  },
+  {
+   "class": "macro avg",
+   "precision": 0.7980622801180202,
+   "recall": 0.8705110754070756,
+   "f1": 0.8169653051468896,
+   "support": 48040
+  }
+ ],
+ "confusion": [
+  [
+   236,
+   0,
+   0,
+   0,
+   21,
+   22
+  ],
+  [
+   18,
+   210,
+   20,
+   13,
+   0,
+   25
+  ],
+  [
+   88,
+   302,
+   7401,
+   12,
+   27,
+   871
+  ],
+  [
+   6,
+   0,
+   41,
+   8202,
+   1,
+   74
+  ],
+  [
+   7,
+   0,
+   1,
+   15,
+   6219,
+   1378
+  ],
+  [
+   103,
+   11,
+   84,
+   4,
+   7,
+   22621
+  ]
+ ],
+ "classes": [
+  "chat",
+  "email",
+  "file_transfer",
+  "streaming",
+  "video_call",
+  "voip_audio"
+ ],
+ "held_out_per_app": [
+  {
+   "label": "chat",
+   "app": "facebook_chat",
+   "session": "facebook_chat_4",
+   "windows": 196,
+   "acc": 0.8163265306122449
+  },
+  {
+   "label": "chat",
+   "app": "gmailchat",
+   "session": "gmailchat2",
+   "windows": 83,
+   "acc": 0.9156626506024096
+  },
+  {
+   "label": "email",
+   "app": "email",
+   "session": "email2",
+   "windows": 286,
+   "acc": 0.7342657342657343
+  },
+  {
+   "label": "file_transfer",
+   "app": "scpdown",
+   "session": "scpDown3",
+   "windows": 2124,
+   "acc": 0.995291902071563
+  },
+  {
+   "label": "file_transfer",
+   "app": "sftp_down",
+   "session": "sftp_down_3",
+   "windows": 4539,
+   "acc": 0.7312183300286407
+  },
+  {
+   "label": "file_transfer",
+   "app": "skype_file",
+   "session": "skype_file3",
+   "windows": 2038,
+   "acc": 0.9656526005888125
+  },
+  {
+   "label": "streaming",
+   "app": "netflix",
+   "session": "netflix2",
+   "windows": 3404,
+   "acc": 0.9879553466509988
+  },
+  {
+   "label": "streaming",
+   "app": "vimeo",
+   "session": "vimeo3",
+   "windows": 2860,
+   "acc": 0.9986013986013986
+  },
+  {
+   "label": "streaming",
+   "app": "youtube",
+   "session": "youtube4",
+   "windows": 2060,
+   "acc": 0.9626213592233009
+  },
+  {
+   "label": "video_call",
+   "app": "facebook_video",
+   "session": "facebook_video2",
+   "windows": 7620,
+   "acc": 0.8161417322834645
+  },
+  {
+   "label": "voip_audio",
+   "app": "hangouts_audio",
+   "session": "hangouts_audio3",
+   "windows": 19030,
+   "acc": 0.9947451392538098
+  },
+  {
+   "label": "voip_audio",
+   "app": "skype_audio",
+   "session": "skype_audio2",
+   "windows": 3800,
+   "acc": 0.9713157894736842
+  }
+ ],
+ "held_out_flows": [
+  {
+   "session": "facebook_video2",
+   "label": "video_call",
+   "flow": "udp :38633<->:51425",
+   "windows": 6175,
+   "mean pkt B": 1100,
+   "pkt/s": 487,
+   "up byte frac": 0.5,
+   "majority pred": "video_call",
+   "share": 1.0
+  },
+  {
+   "session": "facebook_video2",
+   "label": "video_call",
+   "flow": "udp :35146<->:51424",
+   "windows": 1397,
+   "mean pkt B": 118,
+   "pkt/s": 108,
+   "up byte frac": 0.41,
+   "majority pred": "voip_audio",
+   "share": 0.967
+  },
+  {
+   "session": "hangouts_audio3",
+   "label": "voip_audio",
+   "flow": "udp :63026<->:19305",
+   "windows": 17532,
+   "mean pkt B": 137,
+   "pkt/s": 116,
+   "up byte frac": 0.49,
+   "majority pred": "voip_audio",
+   "share": 0.997
+  },
+  {
+   "session": "hangouts_audio3",
+   "label": "voip_audio",
+   "flow": "udp :65191<->:19305",
+   "windows": 503,
+   "mean pkt B": 137,
+   "pkt/s": 116,
+   "up byte frac": 0.5,
+   "majority pred": "voip_audio",
+   "share": 1.0
+  },
+  {
+   "session": "hangouts_audio3",
+   "label": "voip_audio",
+   "flow": "tcp :49420<->:443",
+   "windows": 485,
+   "mean pkt B": 307,
+   "pkt/s": 7,
+   "up byte frac": 0.7,
+   "majority pred": "voip_audio",
+   "share": 0.953
+  },
+  {
+   "session": "hangouts_audio3",
+   "label": "voip_audio",
+   "flow": "tcp :49522<->:443",
+   "windows": 308,
+   "mean pkt B": 305,
+   "pkt/s": 8,
+   "up byte frac": 0.71,
+   "majority pred": "voip_audio",
+   "share": 0.961
+  },
+  {
+   "session": "netflix2",
+   "label": "streaming",
+   "flow": "tcp :80<->:40884",
+   "windows": 3392,
+   "mean pkt B": 1079,
+   "pkt/s": 4737,
+   "up byte frac": 0.01,
+   "majority pred": "streaming",
+   "share": 0.988
+  },
+  {
+   "session": "scpDown3",
+   "label": "file_transfer",
+   "flow": "tcp :22<->:51957",
+   "windows": 2122,
+   "mean pkt B": 1281,
+   "pkt/s": 32000,
+   "up byte frac": 0.01,
+   "majority pred": "file_transfer",
+   "share": 0.995
+  },
+  {
+   "session": "sftp_down_3",
+   "label": "file_transfer",
+   "flow": "tcp :22<->:42128",
+   "windows": 2994,
+   "mean pkt B": 945,
+   "pkt/s": 32000,
+   "up byte frac": 0.94,
+   "majority pred": "file_transfer",
+   "share": 0.999
+  },
+  {
+   "session": "sftp_down_3",
+   "label": "file_transfer",
+   "flow": "tcp :22<->:38033",
+   "windows": 1515,
+   "mean pkt B": 57,
+   "pkt/s": 696,
+   "up byte frac": 0.25,
+   "majority pred": "voip_audio",
+   "share": 0.549
+  },
+  {
+   "session": "skype_audio2",
+   "label": "voip_audio",
+   "flow": "udp :40273<->:49624",
+   "windows": 3635,
+   "mean pkt B": 129,
+   "pkt/s": 105,
+   "up byte frac": 0.5,
+   "majority pred": "voip_audio",
+   "share": 0.999
+  },
+  {
+   "session": "skype_file3",
+   "label": "file_transfer",
+   "flow": "udp :40273<->:49624",
+   "windows": 2015,
+   "mean pkt B": 703,
+   "pkt/s": 610,
+   "up byte frac": 0.93,
+   "majority pred": "file_transfer",
+   "share": 0.967
+  },
+  {
+   "session": "vimeo3",
+   "label": "streaming",
+   "flow": "tcp :54394<->:443",
+   "windows": 2812,
+   "mean pkt B": 1234,
+   "pkt/s": 391,
+   "up byte frac": 0.0,
+   "majority pred": "streaming",
+   "share": 1.0
+  },
+  {
+   "session": "youtube4",
+   "label": "streaming",
+   "flow": "tcp :54334<->:443",
+   "windows": 1030,
+   "mean pkt B": 1058,
+   "pkt/s": 31221,
+   "up byte frac": 0.01,
+   "majority pred": "streaming",
+   "share": 1.0
+  },
+  {
+   "session": "youtube4",
+   "label": "streaming",
+   "flow": "tcp :44157<->:443",
+   "windows": 574,
+   "mean pkt B": 951,
+   "pkt/s": 26436,
+   "up byte frac": 0.02,
+   "majority pred": "streaming",
+   "share": 0.998
+  },
+  {
+   "session": "youtube4",
+   "label": "streaming",
+   "flow": "tcp :58936<->:443",
+   "windows": 302,
+   "mean pkt B": 1041,
+   "pkt/s": 10966,
+   "up byte frac": 0.01,
+   "majority pred": "streaming",
+   "share": 1.0
+  }
+ ],
+ "cv_per_class": [
+  {
+   "class": "chat",
+   "precision": 0.5143101238786844,
+   "recall": 0.7196652719665272,
+   "f1": 0.5999003487792726,
+   "support": 1673
+  },
+  {
+   "class": "email",
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1": 0.0,
+   "support": 303
+  },
+  {
+   "class": "file_transfer",
+   "precision": 0.8262982860066513,
+   "recall": 0.8154506437768241,
+   "f1": 0.820838627700127,
+   "support": 3961
+  },
+  {
+   "class": "streaming",
+   "precision": 0.8888432017543859,
+   "recall": 0.9653170586484072,
+   "f1": 0.9255030683602112,
+   "support": 6718
+  },
+  {
+   "class": "video_call",
+   "precision": 0.9032712915961647,
+   "recall": 0.6790332838668646,
+   "f1": 0.7752632215902214,
+   "support": 4717
+  },
+  {
+   "class": "voip_audio",
+   "precision": 0.8982660025825493,
+   "recall": 0.9113793748830246,
+   "f1": 0.904775176514307,
+   "support": 10686
+  },
+  {
+   "class": "macro avg",
+   "precision": 0.6718314843030727,
+   "recall": 0.6818076055236079,
+   "f1": 0.6710467404906898,
+   "support": 28058
+  }
+ ],
+ "confusion_cv": [
+  [
+   1204,
+   80,
+   16,
+   8,
+   52,
+   313
+  ],
+  [
+   91,
+   0,
+   73,
+   0,
+   7,
+   132
+  ],
+  [
+   64,
+   3,
+   3230,
+   594,
+   24,
+   46
+  ],
+  [
+   21,
+   2,
+   107,
+   6485,
+   11,
+   92
+  ],
+  [
+   476,
+   7,
+   437,
+   74,
+   3203,
+   520
+  ],
+  [
+   485,
+   32,
+   46,
+   135,
+   249,
+   9739
+  ]
+ ],
+ "early_classification": [
+  {
+   "windows seen": "1st window",
+   "n": 439,
+   "raw acc": 0.6241457858769932,
+   "smoothed acc": 0.6241457858769932
+  },
+  {
+   "windows seen": "2nd",
+   "n": 111,
+   "raw acc": 0.6126126126126126,
+   "smoothed acc": 0.7297297297297297
+  },
+  {
+   "windows seen": "3rd-5th",
+   "n": 176,
+   "raw acc": 0.7386363636363636,
+   "smoothed acc": 0.75
+  },
+  {
+   "windows seen": "6th-20th",
+   "n": 526,
+   "raw acc": 0.7813688212927756,
+   "smoothed acc": 0.7889733840304183
+  },
+  {
+   "windows seen": "21st+",
+   "n": 46788,
+   "raw acc": 0.9405403094810635,
+   "smoothed acc": 0.9049756347781482
+  }
+ ],
+ "feature_importance": [
+  {
+   "feature": "size_max",
+   "importance": 0.2151610856864008,
+   "std": 0.0012190482760839703
+  },
+  {
+   "feature": "iat_min",
+   "importance": 0.05345548553048616,
+   "std": 0.00516255571208862
+  },
+  {
+   "feature": "up_size_max",
+   "importance": 0.043101167475801505,
+   "std": 0.0011175065199064403
+  },
+  {
+   "feature": "bytes_per_s",
+   "importance": 0.03926369029711134,
+   "std": 0.001222344469228794
+  },
+  {
+   "feature": "size_mean",
+   "importance": 0.038020582831865136,
+   "std": 0.0021678012355409184
+  },
+  {
+   "feature": "run_len_mean",
+   "importance": 0.03340633919469747,
+   "std": 0.0006731477871878384
+  },
+  {
+   "feature": "size_std",
+   "importance": 0.0323495839854784,
+   "std": 0.001267339046599526
+  },
+  {
+   "feature": "run_len_max",
+   "importance": 0.031137785318442846,
+   "std": 0.0013128752947687036
+  },
+  {
+   "feature": "up_pkt_frac",
+   "importance": 0.026799227008834837,
+   "std": 0.0016955876326722266
+  },
+  {
+   "feature": "iat_cv",
+   "importance": 0.024644298054737068,
+   "std": 0.0020024626961797866
+  },
+  {
+   "feature": "iat_max",
+   "importance": 0.021400441564522366,
+   "std": 0.0005043254588937883
+  },
+  {
+   "feature": "up_size_std",
+   "importance": 0.019965861165524255,
+   "std": 0.0006805011582281468
+  },
+  {
+   "feature": "up_byte_frac",
+   "importance": 0.01942154280131736,
+   "std": 0.0012975577698278189
+  },
+  {
+   "feature": "duration",
+   "importance": 0.01478451210110785,
+   "std": 0.0004414342610898399
+  },
+  {
+   "feature": "size_min",
+   "importance": 0.013754507464238497,
+   "std": 0.0024858977458313276
+  },
+  {
+   "feature": "up_size_mean",
+   "importance": 0.012274476510251797,
+   "std": 0.0013113738903964914
+  },
+  {
+   "feature": "pkts_per_s",
+   "importance": 0.007723749294034854,
+   "std": 0.0012187664785083426
+  },
+  {
+   "feature": "dir_change_frac",
+   "importance": 0.007343897568723778,
+   "std": 0.0008405520899192123
+  },
+  {
+   "feature": "down_size_mean",
+   "importance": 0.00659971050366428,
+   "std": 0.0013141723393535545
+  },
+  {
+   "feature": "down_iat_mean",
+   "importance": 0.005226129800640478,
+   "std": 0.0013172112681605857
+  },
+  {
+   "feature": "down_size_std",
+   "importance": 0.004337900954393259,
+   "std": 0.000676409687497193
+  },
+  {
+   "feature": "proto_udp",
+   "importance": 0.001632402958727064,
+   "std": 0.00015728673435907162
+  },
+  {
+   "feature": "n_pkts",
+   "importance": 0.0015430568085155194,
+   "std": 5.763970010476755e-05
+  },
+  {
+   "feature": "burstiness",
+   "importance": 0.0012911046458111918,
+   "std": 0.0017185173704208911
+  },
+  {
+   "feature": "frac_large",
+   "importance": 0.0005766737060323602,
+   "std": 0.00019474748347041398
+  },
+  {
+   "feature": "down_iat_std",
+   "importance": 0.00015506727919727402,
+   "std": 0.0004615492155366884
+  },
+  {
+   "feature": "up_iat_std",
+   "importance": -0.0007261480991535896,
+   "std": 0.0002858683133557825
+  },
+  {
+   "feature": "iat_std",
+   "importance": -0.0008877747818105908,
+   "std": 0.0003683193423225665
+  },
+  {
+   "feature": "up_iat_mean",
+   "importance": -0.002509142327009828,
+   "std": 0.002754655327639318
+  },
+  {
+   "feature": "down_size_max",
+   "importance": -0.003453114056646456,
+   "std": 0.001211553845843777
+  },
+  {
+   "feature": "down_bytes",
+   "importance": -0.006216250860272532,
+   "std": 0.001875713359105251
+  },
+  {
+   "feature": "iat_mean",
+   "importance": -0.02013767720447155,
+   "std": 0.0018912501328237458
+  },
+  {
+   "feature": "up_bytes",
+   "importance": -0.022839885295936613,
+   "std": 0.000946056906093751
+  },
+  {
+   "feature": "frac_small",
+   "importance": -0.04687788636691333,
+   "std": 0.0009635135381686337
+  }
+ ],
+ "ablation_no_proto": {
+  "cv_macro_f1": 0.6671318705443392,
+  "held_out_macro_f1": 0.7892534647106082,
+  "held_out_acc": 0.933992506244796
+ },
+ "final_meta": {
+  "model": "random_forest",
+  "features": [
+   "proto_udp",
+   "n_pkts",
+   "duration",
+   "pkts_per_s",
+   "bytes_per_s",
+   "up_pkt_frac",
+   "up_byte_frac",
+   "up_bytes",
+   "down_bytes",
+   "size_mean",
+   "size_std",
+   "size_min",
+   "size_max",
+   "frac_small",
+   "frac_large",
+   "up_size_mean",
+   "up_size_std",
+   "up_size_max",
+   "down_size_mean",
+   "down_size_std",
+   "down_size_max",
+   "iat_mean",
+   "iat_std",
+   "iat_min",
+   "iat_max",
+   "iat_cv",
+   "burstiness",
+   "up_iat_mean",
+   "up_iat_std",
+   "down_iat_mean",
+   "down_iat_std",
+   "run_len_mean",
+   "run_len_max",
+   "dir_change_frac"
+  ],
+  "window": 32,
+  "classes": [
+   "chat",
+   "email",
+   "file_transfer",
+   "streaming",
+   "video_call",
+   "voip_audio"
+  ],
+  "training_windows": 28058,
+  "training_sessions": [
+   "AIMchat1",
+   "AIMchat2",
+   "ICQchat1",
+   "ICQchat2",
+   "aim_chat_3",
+   "email1",
+   "facebook_audio1",
+   "facebook_audio2",
+   "facebook_audio3",
+   "facebook_audio4",
+   "facebook_video1",
+   "facebookchat1",
+   "facebookchat2",
+   "facebookchat3",
+   "ftps_up_2",
+   "gmailchat1",
+   "gmailchat3",
+   "hangout_chat_4",
+   "hangouts_audio1",
+   "hangouts_audio2",
+   "hangouts_audio4",
+   "hangouts_chat_4",
+   "hangouts_video1",
+   "icq_chat_3",
+   "netflix1",
+   "netflix3",
+   "netflix4",
+   "scpDown1",
+   "scpDown2",
+   "scpDown4",
+   "scpDown5",
+   "sftpDown1",
+   "sftpDown2",
+   "sftpUp1",
+   "sftp_up_2",
+   "skype_audio1",
+   "skype_audio3",
+   "skype_audio4",
+   "skype_chat1",
+   "skype_file1",
+   "skype_file2",
+   "skype_file4",
+   "skype_file5",
+   "skype_file6",
+   "skype_video1",
+   "skype_video2",
+   "spotify1",
+   "spotify2",
+   "spotify3",
+   "spotify4",
+   "vimeo1",
+   "vimeo2",
+   "vimeo4",
+   "voipbuster1",
+   "voipbuster2",
+   "voipbuster3",
+   "voipbuster_4",
+   "youtube1",
+   "youtube2",
+   "youtube3",
+   "youtube5",
+   "youtube6",
+   "youtubeHTML5_1"
+  ],
+  "held_out_sessions": [
+   "facebook_video2",
+   "hangouts_audio3",
+   "skype_audio2",
+   "netflix2",
+   "youtube4",
+   "vimeo3",
+   "sftp_down_3",
+   "scpDown3",
+   "skype_file3",
+   "facebook_chat_4",
+   "gmailchat2",
+   "email2"
+  ],
+  "cv_macro_f1": 0.6710467404906898,
+  "cv_accuracy": 0.8504169933708746,
+  "cv_fold_macro_f1": [
+   0.5229261400200669,
+   0.7458396030274907,
+   0.6289257090276911,
+   0.6325419507409019,
+   0.6924942056802029
+  ],
+  "held_out": {
+   "accuracy": 0.9344088259783514,
+   "macro_f1": 0.8169653051468896,
+   "tier_accuracy": 0.9699417152373022
+  },
+  "latency": {
+   "single_flow_us_median": 3721.6889998035185,
+   "single_flow_us_p95": 4161.7801501388385,
+   "batched_per_flow_us": 11.197404000085953
+  },
+  "latency_1thread": {
+   "single_flow_us_median": 3520.413500154973,
+   "single_flow_us_p95": 4087.643349635072,
+   "batched_per_flow_us": 10.562489999756508
+  },
+  "data_path": "/home/keertana/metaqos/data/processed/windows_w32.parquet",
+  "seed": 0
+ },
+ "model_size_kb": 3661.90625
+}

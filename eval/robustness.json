@@ -1,0 +1,342 @@
+{
+ "classes_present": [
+  "chat",
+  "email",
+  "file_transfer",
+  "streaming",
+  "voip_audio"
+ ],
+ "vpn_windows": 136470,
+ "vpn_flows": 1232,
+ "baseline": {
+  "windows": 40420,
+  "accuracy": 0.9567046016823355,
+  "macro_f1": 0.673635755782163,
+  "tier_accuracy": 0.9648441365660564
+ },
+ "vpn": {
+  "windows": 136470,
+  "accuracy": 0.5553161867077013,
+  "macro_f1": 0.28921322073196204,
+  "tier_accuracy": 0.5698688356415329
+ },
+ "per_class": [
+  {
+   "class": "chat",
+   "precision": 0.2183379331493407,
+   "recall": 0.29252259654889073,
+   "f1": 0.2500438981562774,
+   "support": 2434
+  },
+  {
+   "class": "email",
+   "precision": 0.11570247933884298,
+   "recall": 0.042879019908116385,
+   "f1": 0.06256983240223464,
+   "support": 653
+  },
+  {
+   "class": "file_transfer",
+   "precision": 0.9029126213592233,
+   "recall": 0.27944711538461536,
+   "f1": 0.4268012849931161,
+   "support": 11648
+  },
+  {
+   "class": "streaming",
+   "precision": 0.4361924686192469,
+   "recall": 0.017659763689493076,
+   "f1": 0.033945215515486994,
+   "support": 47226
+  },
+  {
+   "class": "voip_audio",
+   "precision": 0.9717333844615785,
+   "recall": 0.952301064300957,
+   "f1": 0.961919093324657,
+   "support": 74509
+  },
+  {
+   "class": "macro avg",
+   "precision": 0.5289757773856465,
+   "recall": 0.31696191196641454,
+   "f1": 0.34705586487835444,
+   "support": 136470
+  }
+ ],
+ "confusion": [
+  [
+   712,
+   87,
+   117,
+   380,
+   435,
+   703
+  ],
+  [
+   38,
+   28,
+   174,
+   86,
+   183,
+   144
+  ],
+  [
+   876,
+   78,
+   3255,
+   308,
+   6220,
+   911
+  ],
+  [
+   187,
+   36,
+   4,
+   834,
+   45859,
+   306
+  ],
+  [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1448,
+   13,
+   55,
+   304,
+   1734,
+   70955
+  ]
+ ],
+ "confusion_labels": [
+  "chat",
+  "email",
+  "file_transfer",
+  "streaming",
+  "video_call",
+  "voip_audio"
+ ],
+ "delta": {
+  "accuracy": -0.4013884149746342,
+  "macro_f1": -0.3844225350502009,
+  "tier_accuracy": -0.3949753009245235
+ },
+ "per_file": [
+  {
+   "label": "chat",
+   "file": "vpn_aim_chat1a",
+   "windows": 32,
+   "acc": 0.96875,
+   "majority": "chat"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_aim_chat1b",
+   "windows": 40,
+   "acc": 0.95,
+   "majority": "chat"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_facebook_chat1a",
+   "windows": 241,
+   "acc": 0.3775933609958506,
+   "majority": "chat"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_facebook_chat1b",
+   "windows": 201,
+   "acc": 0.36318407960199006,
+   "majority": "streaming"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_hangouts_chat1a",
+   "windows": 773,
+   "acc": 0.059508408796895215,
+   "majority": "video_call"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_hangouts_chat1b",
+   "windows": 454,
+   "acc": 0.16079295154185022,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_icq_chat1a",
+   "windows": 126,
+   "acc": 0.9841269841269841,
+   "majority": "chat"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_icq_chat1b",
+   "windows": 115,
+   "acc": 0.9826086956521739,
+   "majority": "chat"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_skype_chat1a",
+   "windows": 217,
+   "acc": 0.31336405529953915,
+   "majority": "email"
+  },
+  {
+   "label": "chat",
+   "file": "vpn_skype_chat1b",
+   "windows": 235,
+   "acc": 0.23404255319148937,
+   "majority": "file_transfer"
+  },
+  {
+   "label": "email",
+   "file": "vpn_email2a",
+   "windows": 75,
+   "acc": 0.12,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "email",
+   "file": "vpn_email2b",
+   "windows": 578,
+   "acc": 0.0328719723183391,
+   "majority": "video_call"
+  },
+  {
+   "label": "file_transfer",
+   "file": "vpn_ftps_A",
+   "windows": 3206,
+   "acc": 0.5190268247036806,
+   "majority": "file_transfer"
+  },
+  {
+   "label": "file_transfer",
+   "file": "vpn_ftps_B",
+   "windows": 2758,
+   "acc": 0.0,
+   "majority": "video_call"
+  },
+  {
+   "label": "file_transfer",
+   "file": "vpn_sftp_A",
+   "windows": 2840,
+   "acc": 0.34507042253521125,
+   "majority": "video_call"
+  },
+  {
+   "label": "file_transfer",
+   "file": "vpn_sftp_B",
+   "windows": 630,
+   "acc": 0.0,
+   "majority": "video_call"
+  },
+  {
+   "label": "file_transfer",
+   "file": "vpn_skype_files1a",
+   "windows": 1267,
+   "acc": 0.23677979479084452,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "file_transfer",
+   "file": "vpn_skype_files1b",
+   "windows": 947,
+   "acc": 0.32840549102428723,
+   "majority": "file_transfer"
+  },
+  {
+   "label": "streaming",
+   "file": "vpn_netflix_A",
+   "windows": 27163,
+   "acc": 0.01141258329345065,
+   "majority": "video_call"
+  },
+  {
+   "label": "streaming",
+   "file": "vpn_spotify_A",
+   "windows": 3595,
+   "acc": 0.03643949930458971,
+   "majority": "video_call"
+  },
+  {
+   "label": "streaming",
+   "file": "vpn_vimeo_A",
+   "windows": 3267,
+   "acc": 0.008570554025099479,
+   "majority": "video_call"
+  },
+  {
+   "label": "streaming",
+   "file": "vpn_vimeo_B",
+   "windows": 6708,
+   "acc": 0.008199165175909361,
+   "majority": "video_call"
+  },
+  {
+   "label": "streaming",
+   "file": "vpn_youtube_A",
+   "windows": 6493,
+   "acc": 0.04774372401047282,
+   "majority": "video_call"
+  },
+  {
+   "label": "voip_audio",
+   "file": "vpn_facebook_audio2",
+   "windows": 364,
+   "acc": 0.2445054945054945,
+   "majority": "chat"
+  },
+  {
+   "label": "voip_audio",
+   "file": "vpn_hangouts_audio1",
+   "windows": 13752,
+   "acc": 0.9648778359511344,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "voip_audio",
+   "file": "vpn_hangouts_audio2",
+   "windows": 14663,
+   "acc": 0.9047943804132852,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "voip_audio",
+   "file": "vpn_skype_audio1",
+   "windows": 11674,
+   "acc": 0.9450059962309405,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "voip_audio",
+   "file": "vpn_skype_audio2",
+   "windows": 11590,
+   "acc": 0.9411561691113028,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "voip_audio",
+   "file": "vpn_voipbuster1a",
+   "windows": 11219,
+   "acc": 0.9961672163294412,
+   "majority": "voip_audio"
+  },
+  {
+   "label": "voip_audio",
+   "file": "vpn_voipbuster1b",
+   "windows": 11247,
+   "acc": 0.9970658842357962,
+   "majority": "voip_audio"
+  }
+ ]
+}

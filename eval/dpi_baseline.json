@@ -1,0 +1,241 @@
+{
+ "flows_compared": 298,
+ "packets_compared": 1329698,
+ "held_out_sessions": [
+  "facebook_video2",
+  "hangouts_audio3",
+  "skype_audio2",
+  "netflix2",
+  "youtube4",
+  "vimeo3",
+  "sftp_down_3",
+  "scpDown3",
+  "skype_file3",
+  "facebook_chat_4",
+  "gmailchat2",
+  "email2"
+ ],
+ "min_packets": 32,
+ "ndpi_class": {
+  "flows_total": 298,
+  "flows_decided": 145,
+  "flow_coverage": 0.4865771812080537,
+  "packet_coverage": 0.46399031960640685,
+  "accuracy_when_decided": 0.993103448275862,
+  "packet_weighted_accuracy_when_decided": 0.9275390742130454,
+  "accuracy_all_flows": 0.48322147651006714,
+  "packet_weighted_accuracy_all_flows": 0.4303691514915417
+ },
+ "metaqos_class": {
+  "flows_total": 298,
+  "flows_decided": 298,
+  "flow_coverage": 1.0,
+  "packet_coverage": 1.0,
+  "accuracy_when_decided": 0.7516778523489933,
+  "packet_weighted_accuracy_when_decided": 0.8791003671510373,
+  "accuracy_all_flows": 0.7516778523489933,
+  "packet_weighted_accuracy_all_flows": 0.8791003671510373
+ },
+ "ndpi_tier": {
+  "flows_decided": 147,
+  "flow_coverage": 0.49328859060402686,
+  "packet_coverage": 0.7650767317090046,
+  "accuracy_when_decided": 1.0,
+  "packet_weighted_accuracy_when_decided": 1.0,
+  "accuracy_all_flows": 0.49328859060402686,
+  "packet_weighted_accuracy_all_flows": 0.7650767317090046
+ },
+ "metaqos_tier": {
+  "flows_decided": 298,
+  "flow_coverage": 1.0,
+  "packet_coverage": 1.0,
+  "accuracy_when_decided": 0.8187919463087249,
+  "packet_weighted_accuracy_when_decided": 0.9139646746855301,
+  "accuracy_all_flows": 0.8187919463087249,
+  "packet_weighted_accuracy_all_flows": 0.9139646746855301
+ },
+ "ndpi_apps": [
+  {
+   "ndpi_app": "STUN",
+   "flows": 2,
+   "packets": 400354,
+   "mapped": 0,
+   "% of packets": 30.1
+  },
+  {
+   "ndpi_app": "RTP",
+   "flows": 2,
+   "packets": 358278,
+   "mapped": 2,
+   "% of packets": 26.9
+  },
+  {
+   "ndpi_app": "Unknown",
+   "flows": 42,
+   "packets": 186605,
+   "mapped": 0,
+   "% of packets": 14.0
+  },
+  {
+   "ndpi_app": "SSH",
+   "flows": 4,
+   "packets": 154181,
+   "mapped": 4,
+   "% of packets": 11.6
+  },
+  {
+   "ndpi_app": "TLS",
+   "flows": 36,
+   "packets": 57336,
+   "mapped": 0,
+   "% of packets": 4.3
+  },
+  {
+   "ndpi_app": "HTTP",
+   "flows": 3,
+   "packets": 51149,
+   "mapped": 0,
+   "% of packets": 3.8
+  },
+  {
+   "ndpi_app": "DTLS.SRTP",
+   "flows": 1,
+   "packets": 44706,
+   "mapped": 1,
+   "% of packets": 3.4
+  },
+  {
+   "ndpi_app": "TLS.YouTube",
+   "flows": 5,
+   "packets": 35282,
+   "mapped": 5,
+   "% of packets": 2.7
+  },
+  {
+   "ndpi_app": "STUN.RTP",
+   "flows": 1,
+   "packets": 16086,
+   "mapped": 1,
+   "% of packets": 1.2
+  },
+  {
+   "ndpi_app": "TLS.Google",
+   "flows": 32,
+   "packets": 11518,
+   "mapped": 0,
+   "% of packets": 0.9
+  },
+  {
+   "ndpi_app": "SMTPS",
+   "flows": 100,
+   "packets": 3980,
+   "mapped": 100,
+   "% of packets": 0.3
+  },
+  {
+   "ndpi_app": "IMAPS",
+   "flows": 21,
+   "packets": 3771,
+   "mapped": 21,
+   "% of packets": 0.3
+  },
+  {
+   "ndpi_app": "SNMP",
+   "flows": 2,
+   "packets": 2713,
+   "mapped": 0,
+   "% of packets": 0.2
+  },
+  {
+   "ndpi_app": "QUIC",
+   "flows": 2,
+   "packets": 1047,
+   "mapped": 0,
+   "% of packets": 0.1
+  },
+  {
+   "ndpi_app": "POPS",
+   "flows": 10,
+   "packets": 620,
+   "mapped": 10,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.GMail",
+   "flows": 11,
+   "packets": 499,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.Facebook",
+   "flows": 3,
+   "packets": 482,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.GoogleServices",
+   "flows": 6,
+   "packets": 252,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.PlayStore",
+   "flows": 5,
+   "packets": 237,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "Google",
+   "flows": 3,
+   "packets": 233,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.MS_OneDrive",
+   "flows": 2,
+   "packets": 118,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.Microsoft",
+   "flows": 1,
+   "packets": 78,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.NetFlix",
+   "flows": 1,
+   "packets": 63,
+   "mapped": 1,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "TLS.Teams",
+   "flows": 1,
+   "packets": 44,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "HTTP.OCSP",
+   "flows": 1,
+   "packets": 33,
+   "mapped": 0,
+   "% of packets": 0.0
+  },
+  {
+   "ndpi_app": "NetBIOS.SMBv23",
+   "flows": 1,
+   "packets": 33,
+   "mapped": 0,
+   "% of packets": 0.0
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+[
+ {
+  "window (pkts)": 8,
+  "train windows": 53669,
+  "cv macro-F1": 0.5472934151899423,
+  "cv acc": 0.6880508300881328,
+  "held-out macro-F1": 0.7549007571895823,
+  "held-out acc": 0.9093753729755536
+ },
+ {
+  "window (pkts)": 16,
+  "train windows": 38337,
+  "cv macro-F1": 0.5751543532522083,
+  "cv acc": 0.7561624540261366,
+  "held-out macro-F1": 0.7735115102436834,
+  "held-out acc": 0.9124980512394117
+ },
+ {
+  "window (pkts)": 32,
+  "train windows": 28058,
+  "cv macro-F1": 0.6710467404906898,
+  "cv acc": 0.8504169933708746,
+  "held-out macro-F1": 0.8169653051468896,
+  "held-out acc": 0.9344088259783514
+ },
+ {
+  "window (pkts)": 64,
+  "train windows": 20683,
+  "cv macro-F1": 0.6444137519724775,
+  "cv acc": 0.8383213266934197,
+  "held-out macro-F1": 0.9028283270279659,
+  "held-out acc": 0.9603283743801309
+ }
+]

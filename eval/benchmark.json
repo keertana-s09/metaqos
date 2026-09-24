@@ -1,0 +1,190 @@
+{
+ "cpu": "13th Gen Intel(R) Core(TM) i7-13700H",
+ "window": 32,
+ "deployed_model": "random_forest",
+ "latency": {
+  "random_forest (deployed)": {
+   "inference": {
+    "p50_us": 3519.4964999618605,
+    "p95_us": 3639.001349938553,
+    "p99_us": 3746.4580900541478,
+    "mean_us": 3531.3868265016026
+   },
+   "feature_extraction": {
+    "p50_us": 80.71299998846371,
+    "p95_us": 84.94755003312093,
+    "p99_us": 91.8441999397146,
+    "mean_us": 81.33274549959424
+   },
+   "per_decision_total": {
+    "p50_us": 3600.9085000614505,
+    "p95_us": 3720.1850499855027,
+    "p99_us": 3827.0658999579155,
+    "mean_us": 3612.7195720011964
+   },
+   "batched_1000_us_per_flow": 6.757535000019743
+  },
+  "decision_tree (compact)": {
+   "inference": {
+    "p50_us": 58.056000057149504,
+    "p95_us": 61.39669998788122,
+    "p99_us": 71.66229001427382,
+    "mean_us": 58.5414079992006
+   },
+   "feature_extraction": {
+    "p50_us": 81.11450000569675,
+    "p95_us": 84.85324998446231,
+    "p99_us": 91.60458998735521,
+    "mean_us": 81.65132249922634
+   },
+   "per_decision_total": {
+    "p50_us": 139.3315000086659,
+    "p95_us": 145.6047000374383,
+    "p99_us": 155.9611701043195,
+    "mean_us": 140.19273049842695
+   },
+   "batched_1000_us_per_flow": 0.36757500004114263
+  }
+ },
+ "footprint": {
+  "random_forest (deployed)": {
+   "on_disk_kb": 3661.90625,
+   "pickle_kb": 9700.1875,
+   "resident_kb": 10018.998046875,
+   "tree_nodes": 88356
+  },
+  "decision_tree (compact)": {
+   "on_disk_kb": 20.189453125,
+   "pickle_kb": 43.3359375,
+   "resident_kb": 53.8447265625,
+   "tree_nodes": 385
+  }
+ },
+ "throughput": [
+  {
+   "model": "random_forest",
+   "concurrent flows": 1,
+   "packets": 320,
+   "decisions": 10,
+   "packets/s": 8251.102076502975,
+   "decisions/s": 257.846939890718,
+   "us per packet": 121.19593124992889,
+   "us per decision": 3878.2697999977245,
+   "peak KB": 124.0908203125,
+   "KB per flow": 124.0908203125
+  },
+  {
+   "model": "random_forest",
+   "concurrent flows": 10,
+   "packets": 3200,
+   "decisions": 100,
+   "packets/s": 8385.75849674136,
+   "decisions/s": 262.0549530231675,
+   "us per packet": 119.24979718752837,
+   "us per decision": 3815.993510000908,
+   "peak KB": 331.65625,
+   "KB per flow": 33.165625
+  },
+  {
+   "model": "random_forest",
+   "concurrent flows": 50,
+   "packets": 16000,
+   "decisions": 500,
+   "packets/s": 8466.256877856818,
+   "decisions/s": 264.5705274330256,
+   "us per packet": 118.11595306249956,
+   "us per decision": 3779.710497999986,
+   "peak KB": 749.767578125,
+   "KB per flow": 14.9953515625
+  },
+  {
+   "model": "random_forest",
+   "concurrent flows": 200,
+   "packets": 64000,
+   "decisions": 2000,
+   "packets/s": 8379.982836292062,
+   "decisions/s": 261.8744636341269,
+   "us per packet": 119.331986656249,
+   "us per decision": 3818.623572999968,
+   "peak KB": 2780.6142578125,
+   "KB per flow": 13.9030712890625
+  },
+  {
+   "model": "random_forest",
+   "concurrent flows": 1000,
+   "packets": 320000,
+   "decisions": 10000,
+   "packets/s": 8397.581726556498,
+   "decisions/s": 262.4244289548906,
+   "us per packet": 119.08190149999989,
+   "us per decision": 3810.6208479999964,
+   "peak KB": 13533.9169921875,
+   "KB per flow": 13.5339169921875
+  },
+  {
+   "model": "decision_tree",
+   "concurrent flows": 1,
+   "packets": 320,
+   "decisions": 10,
+   "packets/s": 108062.4736176159,
+   "decisions/s": 3376.952300550497,
+   "us per packet": 9.253906249995225,
+   "us per decision": 296.1249999998472,
+   "peak KB": 37.376953125,
+   "KB per flow": 37.376953125
+  },
+  {
+   "model": "decision_tree",
+   "concurrent flows": 10,
+   "packets": 3200,
+   "decisions": 100,
+   "packets/s": 146127.33563370176,
+   "decisions/s": 4566.47923855318,
+   "us per packet": 6.843346562526165,
+   "us per decision": 218.98709000083727,
+   "peak KB": 117.6865234375,
+   "KB per flow": 11.76865234375
+  },
+  {
+   "model": "decision_tree",
+   "concurrent flows": 50,
+   "packets": 16000,
+   "decisions": 500,
+   "packets/s": 146180.32679033538,
+   "decisions/s": 4568.135212197981,
+   "us per packet": 6.84086581249943,
+   "us per decision": 218.90770599998177,
+   "peak KB": 430.630859375,
+   "KB per flow": 8.6126171875
+  },
+  {
+   "model": "decision_tree",
+   "concurrent flows": 200,
+   "packets": 64000,
+   "decisions": 2000,
+   "packets/s": 160572.14142144428,
+   "decisions/s": 5017.879419420134,
+   "us per packet": 6.227730359373851,
+   "us per decision": 199.28737149996323,
+   "peak KB": 1560.0380859375,
+   "KB per flow": 7.8001904296875
+  },
+  {
+   "model": "decision_tree",
+   "concurrent flows": 1000,
+   "packets": 320000,
+   "decisions": 10000,
+   "packets/s": 146251.9826615685,
+   "decisions/s": 4570.374458174016,
+   "us per packet": 6.837514143750312,
+   "us per decision": 218.80045260000998,
+   "peak KB": 7586.767578125,
+   "KB per flow": 7.586767578125
+  }
+ ],
+ "flow_state": {
+  "flows_tracked": 5000,
+  "peak_kb": 8677.9921875,
+  "bytes_per_flow": 1777.2528
+ }
+}

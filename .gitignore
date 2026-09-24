@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+data/raw/*.pcap
+data/raw/*.pcapng
+data/raw/*.part
+data/raw/fetch.log
+data/processed/*.parquet
+data/processed/*.summary.json
+eval/_tree_for_bench.joblib
+*.egg-info/
+.kaggle/
