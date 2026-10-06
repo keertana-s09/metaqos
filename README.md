@@ -103,14 +103,30 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m pytest tests -q        # 15 tests, ~2 s
 ```
 
-## Run the demo
+## Run the User Interfaces
 
+MetaQoS provides two complementary, modern web user interfaces:
+
+### 1. Streamlit Interactive Dashboard
 ```bash
-.venv/bin/python -m src.demo                 # replay data/samples/demo.pcap in real time
-.venv/bin/python -m src.demo --speed 5       # 5x faster
-.venv/bin/python -m src.demo --speed 0       # instant, then print the final table + tc commands
-.venv/bin/streamlit run src/dashboard.py     # browser dashboard, press "Replay"
+streamlit run src/dashboard.py
 ```
+* **Features**: Dark-mode glassmorphic theme, interactive Plotly queue timeline, 34-feature flow inspector, held-out model telemetry, and Linux `tc` / OpenWrt `nftables` exporter.
+
+### 2. Standalone Web Command Center (FastAPI + HTML5/WebSocket)
+```bash
+python -m src.web_server
+# Open http://localhost:8000 in your browser
+```
+* **Features**: Real-time animated **Network Flow Topology Diagram**, WebSocket streaming PCAP replay, live search/filtering, and instant router rule copy.
+
+### 3. CLI Live Replay
+```bash
+python -m src.demo                 # replay data/samples/demo.pcap in real time
+python -m src.demo --speed 5       # 5x faster
+python -m src.demo --speed 0       # instant summary + tc commands
+```
+
 
 The demo pcap contains one real flow per class taken from **held-out** capture
 sessions (never seen in training) plus two synthetic flows (online gaming and

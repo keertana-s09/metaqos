@@ -1,0 +1,63 @@
+{
+ "local_nets": [
+  "192.168.1.0/24"
+ ],
+ "flows": [
+  {
+   "lan_ip": "192.168.1.10",
+   "true_class": "video_call",
+   "source": "synthetic",
+   "packets": 2704,
+   "seconds": 30.0
+  },
+  {
+   "lan_ip": "192.168.1.11",
+   "true_class": "voip_audio",
+   "source": "synthetic",
+   "packets": 3002,
+   "seconds": 30.0
+  },
+  {
+   "lan_ip": "192.168.1.12",
+   "true_class": "streaming",
+   "source": "synthetic",
+   "packets": 630,
+   "seconds": 29.8
+  },
+  {
+   "lan_ip": "192.168.1.13",
+   "true_class": "file_transfer",
+   "source": "synthetic",
+   "packets": 128610,
+   "seconds": 30.0
+  },
+  {
+   "lan_ip": "192.168.1.14",
+   "true_class": "chat",
+   "source": "synthetic",
+   "packets": 12,
+   "seconds": 27.9
+  },
+  {
+   "lan_ip": "192.168.1.15",
+   "true_class": "email",
+   "source": "synthetic",
+   "packets": 4,
+   "seconds": 15.9
+  },
+  {
+   "lan_ip": "192.168.1.16",
+   "true_class": "gaming",
+   "source": "synthetic",
+   "packets": 2702,
+   "seconds": 30.0
+  },
+  {
+   "lan_ip": "192.168.1.17",
+   "true_class": "browsing",
+   "source": "synthetic",
+   "packets": 495,
+   "seconds": 29.8
+  }
+ ]
+}

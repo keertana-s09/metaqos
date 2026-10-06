@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetaQoS — Encrypted Traffic QoS Command Center</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <h1>MetaQoS Command Center</h1>
+          <p class="subtitle">Zero-Payload Encrypted Traffic QoS & Flow Classifier</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-accent">Model: Random Forest</span>
+        <span class="badge">Window: 32 pkts</span>
+        <span class="badge badge-success">Held-Out F1: 0.817</span>
+        <span id="conn-status" class="badge badge-status">Disconnected</span>
+      </div>
+    </header>
+
+    <!-- Top Telemetry Cards -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-label">Active Flows</span>
+        <span class="metric-value" id="stat-active-flows">0</span>
+        <span class="metric-sub">Tracked 5-tuples</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Processed Packets</span>
+        <span class="metric-value" id="stat-processed-pkts">0</span>
+        <span class="metric-sub">Replayed from pcap</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Single-Flow Latency</span>
+        <span class="metric-value" id="stat-latency">3464 µs</span>
+        <span class="metric-sub">CPU single-thread</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">QoS Tier Accuracy</span>
+        <span class="metric-value text-green" id="stat-tier-acc">97.0%</span>
+        <span class="metric-sub">Held-out sessions</span>
+      </div>
+    </section>
+
+    <!-- Control Bar -->
+    <section class="control-bar">
+      <div class="control-group">
+        <label for="pcap-select">Sample PCAP</label>
+        <select id="pcap-select" class="input-select">
+          <option value="demo.pcap">demo.pcap (Held-out flows + Gaming/Browsing)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="speed-slider">Replay Speed: <span id="speed-val">4.0x</span></label>
+        <input type="range" id="speed-slider" min="0.5" max="20" step="0.5" value="4.0" class="slider">
+      </div>
+      <div class="control-group">
+        <label for="conf-slider">Confidence Floor: <span id="conf-val">0.60</span></label>
+        <input type="range" id="conf-slider" min="0.3" max="0.95" step="0.05" value="0.60" class="slider">
+      </div>
+      <div class="control-group">
+        <label for="alpha-slider">EMA Weight (α): <span id="alpha-val">0.40</span></label>
+        <input type="range" id="alpha-slider" min="0.1" max="1.0" step="0.1" value="0.40" class="slider">
+      </div>
+      <div class="control-actions">
+        <button id="btn-start" class="btn btn-primary">▶ Start Replay</button>
+        <button id="btn-pause" class="btn btn-secondary" disabled>⏸ Pause</button>
+      </div>
+    </section>
+
+    <!-- Network Topology Visualizer Canvas -->
+    <section class="panel topology-panel">
+      <div class="panel-header">
+        <h2>🌐 Live Network Flow Topology & Queue Mapping</h2>
+        <div class="panel-legend">
+          <span class="legend-item"><span class="dot dot-realtime"></span> Realtime (EF)</span>
+          <span class="legend-item"><span class="dot dot-interactive"></span> Interactive (AF41)</span>
+          <span class="legend-item"><span class="dot dot-streaming"></span> Streaming (AF31)</span>
+          <span class="legend-item"><span class="dot dot-best_effort"></span> Best Effort (BE)</span>
+          <span class="legend-item"><span class="dot dot-bulk"></span> Bulk (CS1)</span>
+        </div>
+      </div>
+      <div class="topology-canvas-container">
+        <canvas id="topologyCanvas" width="1150" height="240"></canvas>
+      </div>
+    </section>
+
+    <!-- Main Two-Column Layout -->
+    <div class="main-layout">
+      <!-- Left Column: Active Flow Table -->
+      <section class="panel table-panel">
+        <div class="panel-header">
+          <h2>📊 Active Network Flows</h2>
+          <div class="filter-controls">
+            <input type="text" id="flow-search" placeholder="Search Flow or IP..." class="input-search">
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table class="flow-table" id="flowTable">
+            <thead>
+              <tr>
+                <th>Flow 5-Tuple</th>
+                <th>Packets</th>
+                <th>Win</th>
+                <th>Truth</th>
+                <th>Predicted Class</th>
+                <th>Confidence</th>
+                <th>QoS Tier</th>
+                <th>DSCP</th>
+                <th>Queue</th>
+              </tr>
+            </thead>
+            <tbody id="flowTableBody">
+              <tr>
+                <td colspan="9" class="empty-state">Click "Start Replay" to initiate flow classification telemetry.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Right Column: Decision Log & Router Rules -->
+      <section class="panel side-panel">
+        <div class="panel-header">
+          <h2>📜 Re-classification Event Stream</h2>
+        </div>
+        <div class="log-stream" id="logStream">
+          <div class="log-entry dim">Waiting for first packet window...</div>
+        </div>
+
+        <div class="panel-header margin-top">
+          <h2>⚙️ Router QoS Export</h2>
+          <button id="btn-copy-rules" class="btn btn-sm btn-secondary">📋 Copy Rules</button>
+        </div>
+        <div class="code-export-box">
+          <pre><code id="routerRulesCode"># Replay a capture to generate iptables/tc rules</code></pre>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
